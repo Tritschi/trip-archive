@@ -1,18 +1,21 @@
 # Changelog
 
-## 0.3.0 — 2026-07-17
+## [0.3.0-alpha.2] - 2026-07-17
 
 ### Added
-- Maintainable repository structure
-- Config flow and options flow
-- Atomic storage manager
-- Raw GPS and odometer storage
-- Derived route and statistics rebuild
-- WebSocket list/get/rebuild commands
-- Legacy migration framework
-- Tests and CI
 
-### Deferred
-- Recorder archive dialog
-- Full panel and route map
-- Fuel, consumption, notes and media
+- `trip_archive.create_trip` Home Assistant action
+- Safe automatic trip IDs
+- Empty trip creation with the complete archive directory structure
+- Automatic index refresh
+- Alpha 2 test instructions
+
+## [0.3.0-alpha.1] - 2026-07-17
+
+### Added
+
+- First installable Home Assistant integration
+- Config flow
+- Storage initialization
+- Empty `index.json`
+- Successful real Home Assistant installation test

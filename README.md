@@ -1,31 +1,59 @@
 # Trip Archive
 
-Archive journeys permanently in Home Assistant before Recorder purges their history.
+> Archive your journeys permanently in Home Assistant.
 
-## v0.3.0 — Foundation
+## Current test version
 
-This first repository package contains:
+**v0.3.0-alpha.2**
 
-- UI-based integration setup
-- versioned trip data model
-- atomic local JSON storage
-- immutable raw GPS and odometer documents
-- rebuildable route and statistics documents
-- Douglas-Peucker route simplification
-- basic WebSocket commands
-- conservative legacy migration framework
-- German and English translations
-- tests and GitHub project templates
+Alpha 2 can:
 
-The interactive panel, map and Recorder import dialog follow after this foundation has been validated.
+- install through Home Assistant's integration UI
+- initialize `/config/trip_archive/`
+- create an empty archived trip through the `trip_archive.create_trip` action
+- generate the complete trip folder structure
+- maintain `index.json`
+- keep raw and derived documents separated
 
-## Development installation
+Recorder import and the map are not included yet.
 
-Copy `custom_components/trip_archive` to `/config/custom_components/trip_archive`, restart Home Assistant, then add **Trip Archive** under **Settings → Devices & services**.
+## Installation
 
-Trip data is stored under `/config/trip_archive/` by default.
+Copy:
 
-> Keep a Home Assistant backup while testing an early development version with irreplaceable data.
+```text
+custom_components/trip_archive/
+```
+
+to:
+
+```text
+/config/custom_components/trip_archive/
+```
+
+Restart Home Assistant, then add **Trip Archive** under
+**Settings → Devices & services**.
+
+## Alpha 2 test
+
+Open **Developer tools → Actions**, choose:
+
+```text
+trip_archive.create_trip
+```
+
+Create a small test trip. Home Assistant should then create a folder below:
+
+```text
+/config/trip_archive/trips/
+```
+
+See `docs/alpha-2-test.md` for the exact test procedure.
+
+## Safety
+
+Raw source files are never recalculated or overwritten by derived processing.
+This alpha does not read or change Recorder history.
 
 ## License
 
