@@ -4,56 +4,54 @@
 
 ## Current test version
 
-**v0.3.0-alpha.2**
+**v0.3.0-alpha.2.1**
 
-Alpha 2 can:
+This version completes the first storage round trip:
 
-- install through Home Assistant's integration UI
-- initialize `/config/trip_archive/`
-- create an empty archived trip through the `trip_archive.create_trip` action
-- generate the complete trip folder structure
-- maintain `index.json`
-- keep raw and derived documents separated
+1. create a trip,
+2. save it permanently,
+3. read it back into Home Assistant.
 
-Recorder import and the map are not included yet.
+Trip Archive now creates a sensor named similar to:
+
+```text
+sensor.trip_archive_trips
+```
+
+Its state is the number of archived trips. Its attributes contain the latest
+trip and a compact list of all trips.
+
+Recorder import and the route map are not included yet.
 
 ## Installation
 
-Copy:
-
-```text
-custom_components/trip_archive/
-```
-
-to:
+Replace:
 
 ```text
 /config/custom_components/trip_archive/
 ```
 
-Restart Home Assistant, then add **Trip Archive** under
-**Settings → Devices & services**.
+with the `trip_archive` folder from the install package, then restart Home
+Assistant. The existing integration and archive data remain in place.
 
-## Alpha 2 test
+## Test
 
-Open **Developer tools → Actions**, choose:
-
-```text
-trip_archive.create_trip
-```
-
-Create a small test trip. Home Assistant should then create a folder below:
+Open **Developer tools → States** and search for:
 
 ```text
-/config/trip_archive/trips/
+trip_archive
 ```
 
-See `docs/alpha-2-test.md` for the exact test procedure.
+The Trips sensor should show the number `1` when the Alpha 2 test trip exists.
+Open the attributes to inspect its name, period, activity type and statistics.
+
+Create another trip with `trip_archive.create_trip`. The sensor should update
+without a restart.
 
 ## Safety
 
-Raw source files are never recalculated or overwritten by derived processing.
-This alpha does not read or change Recorder history.
+This alpha only reads Trip Archive's own JSON files. It does not query,
+modify or purge Home Assistant Recorder history.
 
 ## License
 
