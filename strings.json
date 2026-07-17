@@ -1,0 +1,20 @@
+{
+  "title": "Trip Archive",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up Trip Archive",
+        "description": "Choose the storage directory relative to the Home Assistant configuration directory.",
+        "data": {
+          "storage_path": "Storage directory"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Trip Archive is already configured."
+    },
+    "error": {
+      "invalid_storage_path": "Invalid storage directory."
+    }
+  }
+}

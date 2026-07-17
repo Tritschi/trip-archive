@@ -1,0 +1,15 @@
+{
+  "domain": "trip_archive",
+  "name": "Trip Archive",
+  "codeowners": [
+    "@Tritschi"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/Tritschi/trip-archive",
+  "issue_tracker": "https://github.com/Tritschi/trip-archive/issues",
+  "integration_type": "service",
+  "iot_class": "calculated",
+  "requirements": [],
+  "version": "0.3.0-alpha.1",
+  "single_config_entry": true
+}
