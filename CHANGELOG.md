@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.0-beta.1
+
+- First beta release of Trip Archive for Home Assistant.
+- Finalized the Recorder-to-archive-to-dashboard workflow.
+- Validated the Scotland 2026 reference trip with 4,455 km, 21,984 original GPS points and 1,869 display points.
+- Finalized the responsive Beta 1 dashboard for desktop browsers and companion apps.
+- Added consistent colored statistic icons and a responsive delete action.
+- Kept deletion exclusively in the trip detail view to reduce accidental input on mobile.
+- Renamed the optional odometer field to the generic “Streckenzähler (optional)”.
+- Froze the Beta 1 interface; future work focuses on new functionality and bug fixes.
+
 ## 0.3.0-alpha.4.6
 
 - Reduced vertical whitespace above the saved-trip list on mobile.

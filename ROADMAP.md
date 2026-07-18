@@ -1,16 +1,33 @@
 # Roadmap
 
-## v0.3.x — Foundation
-Stabilize storage, migrations and the existing Scotland archive.
+## v0.3.0-beta.1 — First beta
 
-## v0.4.0 — Panel and map
-Responsive trip list, trip view, reliable map and Recorder archive dialog.
+- Recorder-only trip generation
+- Immutable permanent archive
+- Rebuildable statistics and display routes
+- Responsive sidebar dashboard and interactive map
+- Safe trip deletion
+- Scotland 2026 reference validation
+- Beta 1 UI freeze
 
-## v0.5.0 — Statistics
-Stages, stops, time gaps and rebuildable summaries.
+## v0.3.x beta — Intelligent stages
 
-## v0.6.0 — Generic sensors
-Fuel, consumption, range, battery and arbitrary sensor streams.
+- Detect meaningful stages automatically
+- Recognize long stops and periods without movement
+- Optionally consider an unchanged distance counter
+- Remove technical segmentation parameters from the user interface
+
+## Later beta releases
+
+- Notes and travel journal entries
+- Photos and media along the route
+- Places and markers
+- Extended trip statistics and comparisons
+- Generic archived sensor streams
 
 ## v1.0.0 — Stable
-Migration guarantees, import/export, documentation and HACS-ready packaging.
+
+- Stable storage and migration guarantees
+- Complete documentation
+- Reliable update path
+- HACS-ready packaging
