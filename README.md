@@ -1,7 +1,5 @@
 # Trip Archive
 
-![Trip Archive Dashboard](docs/images/dashboard.png)
-
 Archive completed journeys from **Home Assistant Recorder** and explore them later using an interactive map, travel statistics and permanently stored trip data.
 
 > ⚠️ **Beta Software**
