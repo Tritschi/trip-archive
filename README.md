@@ -1,6 +1,6 @@
 # Trip Archive
 
-![Beta](https://img.shields.io/badge/status-beta-orange)
+[![Latest release](https://img.shields.io/github/v/release/Tritschi/trip-archive?include_prereleases&label=release)](https://github.com/Tritschi/trip-archive/releases)
 ![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2025.6%2B-41BDF5)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -8,7 +8,7 @@ Archive completed journeys from **Home Assistant Recorder** and explore them lat
 
 > ⚠️ **Beta Software**
 >
-> Trip Archive is currently in **Beta (v0.3.0-beta.1)**.
+> Trip Archive is currently in **beta**. The release badge above always points to the latest published version.
 > The complete Recorder-to-Archive workflow is implemented and stable, but the project will continue to evolve before the first stable release.
 
 ---

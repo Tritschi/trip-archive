@@ -33,3 +33,16 @@ class TripMetadata:
     tags: list[str] = field(default_factory=list)
     schema_version: int = SCHEMA_VERSION
     def as_dict(self) -> dict[str, Any]: return asdict(self)
+
+
+def slugify_trip_id(name: str, start: str) -> str:
+    """Create a stable, filesystem-safe trip identifier."""
+    import re
+    import unicodedata
+
+    date_prefix = start[:10] if len(start) >= 10 else "undated"
+    normalized = unicodedata.normalize("NFKD", name)
+    ascii_name = normalized.encode("ascii", "ignore").decode("ascii")
+    slug = re.sub(r"[^a-z0-9]+", "-", ascii_name.lower()).strip("-")
+    slug = slug[:90].rstrip("-") or "trip"
+    return f"{date_prefix}-{slug}"

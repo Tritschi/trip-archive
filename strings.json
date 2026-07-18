@@ -16,5 +16,12 @@
     "error": {
       "invalid_storage_path": "Invalid storage directory."
     }
+  },
+  "entity": {
+    "sensor": {
+      "trips": {
+        "name": "Trips"
+      }
+    }
   }
 }
