@@ -1,5 +1,9 @@
 # Trip Archive
 
+![Beta](https://img.shields.io/badge/status-beta-orange)
+![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2025.6%2B-41BDF5)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 Archive completed journeys from **Home Assistant Recorder** and explore them later using an interactive map, travel statistics and permanently stored trip data.
 
 > ⚠️ **Beta Software**
@@ -9,7 +13,9 @@ Archive completed journeys from **Home Assistant Recorder** and explore them lat
 
 ---
 
-## Dashboard
+# Dashboard
+
+> *(Screenshot will appear here after uploading `docs/images/dashboard.png`.)*
 
 ![Trip Archive Dashboard](docs/images/dashboard.png)
 
@@ -17,37 +23,41 @@ Trip Archive permanently preserves completed journeys outside the Recorder datab
 
 ---
 
-## Why Trip Archive?
+# Why Trip Archive?
 
 Home Assistant Recorder is designed for short-term history. Depending on your Recorder settings, older location history is automatically removed over time.
 
 Trip Archive solves this by creating permanent trip archives directly from Recorder data.
 
-Unlike GPX import tools, Trip Archive does **not** rely on exported files or external services. Every archived journey is built directly from Home Assistant Recorder and stored locally.
+Unlike GPX import tools, Trip Archive does **not** rely on exported files or external services.
 
-The original archived GPS data always remains unchanged. Display routes, statistics and map visualizations are derived from this immutable data and can be recreated at any time.
+Recorder is the **only source of trip data**.
+
+The archived raw GPS data always remains unchanged.
+
+Display routes, statistics and map visualizations are derived from this immutable data and can be recreated at any time.
 
 ---
 
-## Features
+# Features
 
-### Archive
+## Archive
 
 - Archive completed trips directly from Home Assistant Recorder
 - Preserve immutable original GPS data
 - Optional odometer support
 - Permanent local trip storage
 
-### Explore
+## Explore
 
 - Interactive map view
 - Travel statistics
-- Simplified display routes for fast rendering
+- Simplified display routes
 - Segment visualization
 - Trip overview sidebar
 - Responsive desktop and mobile layout
 
-### Reliability
+## Reliability
 
 - Fully local operation
 - No cloud services
@@ -55,20 +65,26 @@ The original archived GPS data always remains unchanged. Display routes, statist
 - No GPX imports
 - No Garmin imports
 - No OwnTracks imports
-- Reproducible statistics and display routes
+- Reproducible statistics
+- Immutable archived data
 
 ---
 
-## Installation
+# Installation
 
-### Manual Installation
+## Manual Installation
 
 1. Download the latest release from the GitHub Releases page.
-2. Copy the **trip_archive** integration into your Home Assistant `custom_components` directory.
+2. Copy the **trip_archive** integration into:
+
+```text
+/config/custom_components/
+```
+
 3. Restart Home Assistant.
 4. Open:
 
-```
+```text
 Settings → Devices & Services
 ```
 
@@ -79,7 +95,7 @@ Settings → Devices & Services
 
 ---
 
-## Requirements
+# Requirements
 
 Trip Archive requires:
 
@@ -92,9 +108,9 @@ Trips can only be archived after they have been recorded by Home Assistant Recor
 
 ---
 
-## How It Works
+# Architecture
 
-```
+```text
 Home Assistant Recorder
            │
            ▼
@@ -106,101 +122,78 @@ Home Assistant Recorder
            └── Interactive map
 ```
 
-Trip Archive intentionally keeps its architecture simple.
+Recorder is the **only** source of trip data.
 
-Recorder is the **only source of trip data**.
+Archived raw data never changes.
 
-The archived raw data never changes.
+Everything displayed inside the dashboard is generated from this immutable archive.
 
-Everything shown in the dashboard—including statistics, display routes and map rendering—is generated from this immutable archive.
-
-This guarantees that every trip can always be reproduced.
+This guarantees reproducible statistics and routes.
 
 ---
 
-## Local Storage
+# Local Storage
 
 Archived trips are stored locally inside Home Assistant.
 
-```
+```text
 /config/trip_archive/trips/
 ```
 
-Each trip is stored independently and can be viewed or deleted without affecting Home Assistant Recorder.
+Each trip is independent and can safely be deleted without affecting Recorder.
 
 ---
 
-## Reference Validation
+# Reference Validation
 
 Trip Archive has been validated using a real-world reference journey.
 
-### Scotland 2026
+## Scotland 2026
 
 | Item | Value |
 |------|------:|
-| Total distance | **4,455 km** |
+| Distance | **4,455 km** |
 | Original GPS points | **21,984** |
 | Display points | **1,869** |
 | Segments | **1** |
 | Start odometer | **22,334 km** |
 | End odometer | **26,789 km** |
 
-This reference trip is used during development to verify route generation, statistics and data integrity.
+This journey is used during development to verify statistics, route generation and data integrity.
 
 ---
 
-## Project Status
-
-Current release:
-
-**v0.3.0-beta.1**
-
-Current development focuses on:
-
-- Stability
-- Documentation
-- Bug fixes
-- Performance improvements
-- Community feedback
-
----
-
-## Documentation
-
-Additional project documentation is included in this repository.
+# Documentation
 
 - CHANGELOG
 - ROADMAP
 - CONTRIBUTING
 - RELEASE_CHECKLIST
 
-Documentation will continue to grow during the beta phase.
-
 ---
 
-## Roadmap
+# Roadmap
 
 Planned improvements include:
 
 - HACS support
 - Additional statistics
-- Improved performance
-- More documentation
+- Performance improvements
 - Additional language translations
 
 ---
 
-## Contributing
+# Contributing
 
-Bug reports, ideas and pull requests are always welcome.
+Bug reports, feature requests and pull requests are always welcome.
 
-If you discover an issue or have an idea for improvement, please open a GitHub Issue.
+Please open a GitHub Issue if you discover a bug or have an idea for improvement.
 
 ---
 
-## License
+# License
 
-This project is licensed under the **MIT License**.
+MIT License
 
 ---
 
