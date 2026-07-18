@@ -1,85 +1,42 @@
 # Trip Archive
 
-> Permanently archive journeys from Home Assistant Recorder and explore them on an interactive map.
-
-Trip Archive is a custom Home Assistant integration for preserving historical GPS and odometer data before Recorder purges it. Raw source data remains immutable; maps, statistics and simplified routes are derived data that can be rebuilt at any time.
+> Archive journeys permanently from Home Assistant Recorder and display them on an interactive map.
 
 ## Current test version
 
-**v0.3.0-alpha.4.4**
+**v0.3.0-alpha.4.3**
 
-This version provides the first complete Recorder-to-map workflow:
+This alpha provides the complete first workflow:
 
-1. select a trip name, time range, device tracker and odometer entity,
-2. read GPS and odometer history directly from Home Assistant Recorder,
-3. store the original samples permanently below `/config/trip_archive/`,
-4. generate rebuildable statistics and a simplified display route,
-5. select archived trips in the Trip Archive sidebar panel,
-6. inspect the route on a large, zoomable map in browser or Companion App.
+1. select a time range and Home Assistant entities,
+2. read GPS and odometer history from Recorder,
+3. store immutable raw data below `/config/trip_archive/`,
+4. generate statistics and a simplified display route,
+5. select archived trips in the sidebar panel and inspect them on a zoomable map.
 
-The panel includes:
+The panel includes start and destination markers, automatic route fitting, a manual “Auf Route zoomen” action, and tile-provider failover.
 
-- a compact list of archived trips,
-- a large interactive map,
-- start and destination markers,
-- automatic route fitting and **Auf Route zoomen**,
-- trip distance, odometer values and GPS point counts,
-- a Recorder archive dialog,
-- Home Assistant navigation with a hamburger menu in browser and app.
-
-## Recorder only
-
-Trip Archive intentionally has no JSON, GPX, Garmin, OwnTracks or other file importer. Archived trips are generated from the Home Assistant installation itself. The Recorder database is read only and is never modified or purged by Trip Archive.
+There is no file, JSON, GPX, Garmin, or OwnTracks import. Trip data is generated from Home Assistant Recorder only.
 
 ## Installation
 
-Download the install package and replace:
+Replace:
 
 ```text
 /config/custom_components/trip_archive/
 ```
 
-with the included `trip_archive` folder. Restart Home Assistant afterwards.
-
-Do **not** replace or delete the permanent data directory:
+with the `trip_archive` folder from the install package, then restart Home Assistant. Do not replace or delete:
 
 ```text
 /config/trip_archive/
 ```
 
-The sidebar panel is registered automatically by the integration. No `panel_custom` entry in `configuration.yaml` is required.
+The sidebar panel registers itself; no `panel_custom` entry is required.
 
-## Storage principle
+## Safety
 
-```text
-/config/trip_archive/
-└── trips/
-    └── <trip-id>/
-        ├── trip.json
-        ├── sources.json
-        ├── raw/
-        │   ├── gps.json
-        │   └── odometer.json
-        └── derived/
-            ├── statistics.json
-            └── route_display.json
-```
-
-Files below `raw/` are the permanent source archive. Files below `derived/` can be regenerated from those originals.
-
-## Verified reference trip
-
-The Scotland 2026 trip was regenerated directly from Home Assistant Recorder and reproduced the reference values:
-
-- 22,334 km start odometer
-- 26,789 km end odometer
-- 4,455 km difference
-- 21,984 original GPS points
-- 1,869 simplified display points
-
-## Project status
-
-Trip Archive is alpha software. Back up `/config/trip_archive/` before testing new versions. Tested versions are tagged in the repository.
+Recorder history is read only. Trip Archive does not modify or purge Recorder data. Raw archived trip data is kept separate from derived statistics and display routes.
 
 ## License
 

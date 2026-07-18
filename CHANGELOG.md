@@ -1,63 +1,58 @@
 # Changelog
 
+## 0.3.0-alpha.4.6
+
+- Reduced vertical whitespace above the saved-trip list on mobile.
+- Added compact colored icons to the trip statistics.
+- Added a compact red delete icon on narrow screens.
+- Reduced the trip title size responsively on iPhone-sized screens.
+- Renamed the archive field from “Kilometerzähler” to “Streckenzähler (optional)” for vehicle, cycling and walking trips.
+
+## 0.3.0-alpha.4.5
+
+- Optimize trip details for narrow mobile screens.
+- Remove distance from the saved-trip list.
+- Replace odometer start/end with one total-distance value.
+- Show original GPS points, display points, and route segments as separate values.
+- Add an on-demand segment explanation via an info button.
+
 ## 0.3.0-alpha.4.4
 
-- Shows the Home Assistant app bar and hamburger menu in both browser and Companion App.
-- Removes the duplicate Trip Archive brand header.
-- Recalculates the dashboard height so the map uses the available space below the app bar.
-- Keeps the compact, map-focused dashboard layout introduced in alpha.4.x.
+- Shows the Home Assistant app bar and hamburger menu in both browser and companion app.
+- Removes the duplicate sidebar brand header on all screen sizes.
+- Recalculates the dashboard height so the map keeps the available space below the app bar.
 
 ## 0.3.0-alpha.4.3
 
-- Added Home Assistant navigation for narrow and app layouts.
-- Restored access to the Home Assistant sidebar in Android and iOS Companion Apps.
-- Updated frontend cache versioning.
+- Avoided the duplicated Trip Archive title in narrow/app mode.
+- The native Home Assistant app bar remains visible while the sidebar brand header is hidden on narrow layouts.
+- Desktop layouts keep the existing sidebar brand without an additional app bar.
 
-## 0.3.0-alpha.4.2
+## 0.3.0-alpha.4.3
 
-- Added the native Home Assistant menu button and compact app bar.
-- Preserved the desktop map-focused layout.
-
-## 0.3.0-alpha.4.1
-
-- Moved **Reise archivieren** into the left sidebar.
-- Removed the separate page header so the trip view and map move upward.
-- Replaced large statistic cards with a compact summary strip.
-- Made the map consume the remaining viewport height.
-
-## 0.3.0-alpha.4
-
-- Added a more reliable map tile setup with fallback handling.
-- Added start and destination markers.
-- Added **Auf Route zoomen** and improved route fitting.
-- Increased the map area and improved responsive layout behavior.
-
-## 0.3.0-alpha.3.4
-
-- Made incomplete legacy trip directories readable and deletable.
-- Missing derived files no longer crash WebSocket requests.
-- Added visible progress feedback while Recorder data is archived.
-- Loaded Leaflet styles inside the panel context.
+- adds a native Home Assistant menu button and compact app bar on narrow screens
+- restores access to the Home Assistant sidebar in the Android and iOS apps
+- keeps the desktop map-focused layout unchanged
+- updates frontend cache versioning
 
 ## 0.3.0-alpha.3.3
 
-- Added a trip-list fallback from `sensor.trip_archive_trips` attributes.
-- Merged sensor and WebSocket trip results.
-- Disabled long-term caching for panel static assets.
-- Added frontend version query parameters to force refresh after upgrades.
+- Trip list now falls back to the `sensor.trip_archive_trips` attributes and merges them with WebSocket results.
+- Disabled long-term caching for the panel static path.
+- Added a version query parameter to the panel module URL to force frontend refreshes after upgrades.
 
 ## 0.3.0-alpha.3.1
 
-- Fixed an inconsistent state where the sensor contained trips but the panel listed none.
-- Resolved storage managers deterministically.
-- Merged and de-duplicated trips across legacy config entries.
+- Fixed an inconsistent panel state where the summary sensor showed archived trips but the sidebar panel listed none.
+- WebSocket commands now resolve the storage manager deterministically and can recover from duplicate legacy config entries.
+- Trip listing merges and de-duplicates trips across all configured managers.
 
 ## 0.3.0-alpha.3
 
 - Restored the Trip Archive sidebar dashboard based on the proven 0.2.0 panel.
-- Registered the panel automatically without `panel_custom` YAML.
+- Panel is registered by the integration; no `panel_custom` YAML is required.
 - Added trip list, large zoomable map, statistics and archive dialog.
 - Added Recorder-only generation for GPS and odometer source data.
-- Stored immutable raw data in the 0.3 trip directory structure.
+- Stores immutable raw data in the 0.3 trip directory structure.
 - Added route gap segmentation, derived regeneration and trip deletion.
 - No file, GPX or JSON import support.
